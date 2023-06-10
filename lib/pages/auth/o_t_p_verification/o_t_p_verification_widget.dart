@@ -189,6 +189,9 @@ class _OTPVerificationWidgetState extends State<OTPVerificationWidget> {
                                   return;
                                 }
 
+                                if (Navigator.of(context).canPop()) {
+                                  context.pop();
+                                }
                                 context.pushNamedAuth(
                                     'SignUp', context.mounted);
 
