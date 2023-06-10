@@ -5,7 +5,9 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'home_model.dart';
@@ -27,6 +29,37 @@ class _HomeWidgetState extends State<HomeWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomeModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      if (loggedIn == true) {
+        _model.isRegistered = await actions.checkRegisteredUser(
+          currentPhoneNumber,
+        );
+      } else {
+        return;
+      }
+
+      if (_model.isRegistered!) {
+        return;
+      }
+
+      context.pushNamed(
+        'SignUp',
+        queryParameters: {
+          'phone': serializeParam(
+            currentPhoneNumber,
+            ParamType.String,
+          ),
+          'uuid': serializeParam(
+            currentUserUid,
+            ParamType.String,
+          ),
+        }.withoutNulls,
+      );
+
+      return;
+    });
   }
 
   @override

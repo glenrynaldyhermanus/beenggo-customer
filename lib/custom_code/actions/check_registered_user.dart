@@ -19,5 +19,5 @@ Future<bool?> checkRegisteredUser(
     ),
   );
 
-  return result.isEmpty;
+  return result.isNotEmpty;
 }
