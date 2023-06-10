@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1084153907686-06c2r3u2kbqceois0c5rcls7j6gknnsp.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1084153907686-06c2r3u2kbqceois0c5rcls7j6gknnsp</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>1084153907686-30hbonaiouigspcog77vpnq3tma3qhsd.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC-aX3XdoD6jvTWOR-1E1z5yBYB6pC8QTM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1084153907686</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.beenggo.app</string>
+	<key>PROJECT_ID</key>
+	<string>meganik-22a48</string>
+	<key>STORAGE_BUCKET</key>
+	<string>meganik-22a48.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1084153907686:ios:40a175f94eaf70a3eeae27</string>
+</dict>
+</plist>
