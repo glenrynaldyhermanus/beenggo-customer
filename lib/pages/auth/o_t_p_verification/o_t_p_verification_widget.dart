@@ -157,6 +157,7 @@ class _OTPVerificationWidgetState extends State<OTPVerificationWidget> {
                                 24.0, 0.0, 24.0, 64.0),
                             child: FFButtonWidget(
                               onPressed: () async {
+                                var _shouldSetState = false;
                                 GoRouter.of(context).prepareAuthEvent();
                                 final smsCodeVal =
                                     _model.pinCodeController!.text;
@@ -182,24 +183,18 @@ class _OTPVerificationWidgetState extends State<OTPVerificationWidget> {
                                     await actions.checkRegisteredUser(
                                   currentPhoneNumber,
                                 );
-                                if (_model.isRegistered != true) {
-                                  context.pushNamedAuth(
-                                    'SignUp',
-                                    context.mounted,
-                                    queryParameters: {
-                                      'phone': serializeParam(
-                                        currentPhoneNumber,
-                                        ParamType.String,
-                                      ),
-                                      'uuid': serializeParam(
-                                        currentUserUid,
-                                        ParamType.String,
-                                      ),
-                                    }.withoutNulls,
-                                  );
+                                _shouldSetState = true;
+                                if (_model.isRegistered == true) {
+                                  if (_shouldSetState) setState(() {});
+                                  return;
                                 }
 
-                                setState(() {});
+                                context.pushNamedAuth(
+                                    'SignUp', context.mounted);
+
+                                if (_shouldSetState) setState(() {});
+                                return;
+                                if (_shouldSetState) setState(() {});
                               },
                               text: 'Let\'s Go!',
                               options: FFButtonOptions(
