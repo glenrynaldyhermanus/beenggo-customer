@@ -189,6 +189,7 @@ class _OTPVerificationWidgetState extends State<OTPVerificationWidget> {
                                   return;
                                 }
 
+                                context.safePop();
                                 if (Navigator.of(context).canPop()) {
                                   context.pop();
                                 }
