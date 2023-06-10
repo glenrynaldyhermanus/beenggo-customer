@@ -1,28 +1,29 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'order_detail_model.dart';
-export 'order_detail_model.dart';
+import 'order_summary_model.dart';
+export 'order_summary_model.dart';
 
-class OrderDetailWidget extends StatefulWidget {
-  const OrderDetailWidget({Key? key}) : super(key: key);
+class OrderSummaryWidget extends StatefulWidget {
+  const OrderSummaryWidget({Key? key}) : super(key: key);
 
   @override
-  _OrderDetailWidgetState createState() => _OrderDetailWidgetState();
+  _OrderSummaryWidgetState createState() => _OrderSummaryWidgetState();
 }
 
-class _OrderDetailWidgetState extends State<OrderDetailWidget> {
-  late OrderDetailModel _model;
+class _OrderSummaryWidgetState extends State<OrderSummaryWidget> {
+  late OrderSummaryModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => OrderDetailModel());
+    _model = createModel(context, () => OrderSummaryModel());
   }
 
   @override
@@ -59,7 +60,7 @@ class _OrderDetailWidgetState extends State<OrderDetailWidget> {
             },
           ),
           title: Text(
-            'OrderDetail',
+            'OrderSummary',
             style: FlutterFlowTheme.of(context).headlineSmall,
           ),
           actions: [],
@@ -70,7 +71,35 @@ class _OrderDetailWidgetState extends State<OrderDetailWidget> {
           top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
-            children: [],
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 48.0, 24.0, 48.0),
+                child: FFButtonWidget(
+                  onPressed: () async {
+                    context.pushNamed('OrderSummary');
+                  },
+                  text: 'Order',
+                  options: FFButtonOptions(
+                    width: double.infinity,
+                    height: 48.0,
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    iconPadding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: FlutterFlowTheme.of(context).primary,
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                          fontFamily: 'Raleway',
+                          color: Colors.white,
+                        ),
+                    elevation: 3.0,
+                    borderSide: BorderSide(
+                      color: Colors.transparent,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

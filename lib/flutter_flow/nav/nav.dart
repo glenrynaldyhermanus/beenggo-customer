@@ -125,15 +125,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'OrderDetail',
-          path: '/orderDetail',
+          name: 'OrderSummary',
+          path: '/orderSummary',
           requireAuth: true,
-          builder: (context, params) => OrderDetailWidget(),
+          builder: (context, params) => OrderSummaryWidget(),
         ),
         FFRoute(
           name: 'SignUp',
           path: '/signUp',
-          builder: (context, params) => SignUpWidget(),
+          builder: (context, params) => SignUpWidget(
+            phone: params.getParam('phone', ParamType.String),
+            uuid: params.getParam('uuid', ParamType.String),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -15,7 +15,14 @@ import 'sign_up_model.dart';
 export 'sign_up_model.dart';
 
 class SignUpWidget extends StatefulWidget {
-  const SignUpWidget({Key? key}) : super(key: key);
+  const SignUpWidget({
+    Key? key,
+    required this.phone,
+    required this.uuid,
+  }) : super(key: key);
+
+  final String? phone;
+  final String? uuid;
 
   @override
   _SignUpWidgetState createState() => _SignUpWidgetState();
