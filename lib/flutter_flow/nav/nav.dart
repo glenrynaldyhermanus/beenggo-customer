@@ -133,10 +133,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'SignUp',
           path: '/signUp',
-          builder: (context, params) => SignUpWidget(
-            phone: params.getParam('phone', ParamType.String),
-            uuid: params.getParam('uuid', ParamType.String),
-          ),
+          builder: (context, params) => SignUpWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

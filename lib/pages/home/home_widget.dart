@@ -44,19 +44,10 @@ class _HomeWidgetState extends State<HomeWidget> {
         return;
       }
 
-      context.pushNamed(
-        'SignUp',
-        queryParameters: {
-          'phone': serializeParam(
-            currentPhoneNumber,
-            ParamType.String,
-          ),
-          'uuid': serializeParam(
-            currentUserUid,
-            ParamType.String,
-          ),
-        }.withoutNulls,
-      );
+      if (Navigator.of(context).canPop()) {
+        context.pop();
+      }
+      context.pushNamed('SignUp');
 
       return;
     });
