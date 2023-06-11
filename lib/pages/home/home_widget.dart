@@ -34,6 +34,7 @@ class _HomeWidgetState extends State<HomeWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().isLoginSkippable = false;
       if (loggedIn == true) {
         _model.isRegistered = await actions.checkRegisteredUser(
           currentPhoneNumber,

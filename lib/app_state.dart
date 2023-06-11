@@ -139,6 +139,12 @@ class FFAppState extends ChangeNotifier {
     updateFn(_profile);
     secureStorage.setString('ff_profile', _profile.serialize());
   }
+
+  bool _isLoginSkippable = true;
+  bool get isLoginSkippable => _isLoginSkippable;
+  set isLoginSkippable(bool _value) {
+    _isLoginSkippable = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

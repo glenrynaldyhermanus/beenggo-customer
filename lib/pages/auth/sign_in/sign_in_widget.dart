@@ -234,58 +234,60 @@ class _SignInWidgetState extends State<SignInWidget> {
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 64.0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  context.goNamed('Home');
-                                },
-                                text: 'Skip For Now',
-                                options: FFButtonOptions(
-                                  width: double.infinity,
-                                  height: 56.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: 'Raleway',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                      ),
-                                  elevation: 0.0,
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 0.0,
+                            if (FFAppState().isLoginSkippable)
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 0.0, 24.0, 64.0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    context.goNamed('Home');
+                                  },
+                                  text: 'Skip For Now',
+                                  options: FFButtonOptions(
+                                    width: double.infinity,
+                                    height: 56.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Raleway',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                        ),
+                                    elevation: 0.0,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 0.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
-                            ),
                           ],
                         ),
                       ),
                     ],
                   ),
-                  FlutterFlowIconButton(
-                    borderColor: Colors.transparent,
-                    borderRadius: 30.0,
-                    borderWidth: 1.0,
-                    buttonSize: 54.0,
-                    icon: Icon(
-                      Icons.arrow_back_rounded,
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      size: 24.0,
+                  if (!FFAppState().isLoginSkippable)
+                    FlutterFlowIconButton(
+                      borderColor: Colors.transparent,
+                      borderRadius: 30.0,
+                      borderWidth: 1.0,
+                      buttonSize: 54.0,
+                      icon: Icon(
+                        Icons.arrow_back_rounded,
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        size: 24.0,
+                      ),
+                      onPressed: () async {
+                        context.pop();
+                      },
                     ),
-                    onPressed: () async {
-                      context.pop();
-                    },
-                  ),
                 ],
               ),
             ),
