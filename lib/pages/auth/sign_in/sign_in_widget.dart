@@ -202,7 +202,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                     context: context,
                                     phoneNumber: phoneNumberVal,
                                     onCodeSent: (context) async {
-                                      context.goNamedAuth(
+                                      context.pushNamedAuth(
                                         'OTPVerification',
                                         context.mounted,
                                         ignoreRedirect: true,
