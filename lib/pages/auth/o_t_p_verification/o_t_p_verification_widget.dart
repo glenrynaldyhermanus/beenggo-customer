@@ -191,11 +191,7 @@ class _OTPVerificationWidgetState extends State<OTPVerificationWidget> {
                                     currentPhoneNumber,
                                   );
                                   _shouldSetState = true;
-                                  if (_model.isRegistered == true) {
-                                    context.safePop();
-                                    if (_shouldSetState) setState(() {});
-                                    return;
-                                  } else {
+                                  if (_model.isRegistered != true) {
                                     context.safePop();
                                     if (Navigator.of(context).canPop()) {
                                       context.pop();
@@ -206,7 +202,6 @@ class _OTPVerificationWidgetState extends State<OTPVerificationWidget> {
                                     if (_shouldSetState) setState(() {});
                                     return;
                                   }
-
                                   if (_shouldSetState) setState(() {});
                                 },
                                 text: 'Let\'s Go!',
