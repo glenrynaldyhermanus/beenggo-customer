@@ -102,7 +102,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                               ),
                               Text(
                                 loggedIn == true
-                                    ? FFAppState().profile.fullName
+                                    ? FFAppState().profile.fullName.split(" ").first
                                     : 'Guest',
                                 style: FlutterFlowTheme.of(context)
                                     .titleLarge
