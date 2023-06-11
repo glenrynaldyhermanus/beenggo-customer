@@ -185,19 +185,23 @@ class _OTPVerificationWidgetState extends State<OTPVerificationWidget> {
                                 );
                                 _shouldSetState = true;
                                 if (_model.isRegistered == true) {
+                                  context.pushNamedAuth(
+                                      'Home', context.mounted);
+
+                                  if (_shouldSetState) setState(() {});
+                                  return;
+                                } else {
+                                  context.safePop();
+                                  if (Navigator.of(context).canPop()) {
+                                    context.pop();
+                                  }
+                                  context.pushNamedAuth(
+                                      'SignUp', context.mounted);
+
                                   if (_shouldSetState) setState(() {});
                                   return;
                                 }
 
-                                context.safePop();
-                                if (Navigator.of(context).canPop()) {
-                                  context.pop();
-                                }
-                                context.pushNamedAuth(
-                                    'SignUp', context.mounted);
-
-                                if (_shouldSetState) setState(() {});
-                                return;
                                 if (_shouldSetState) setState(() {});
                               },
                               text: 'Let\'s Go!',
