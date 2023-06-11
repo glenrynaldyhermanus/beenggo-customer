@@ -20,9 +20,6 @@ class CustomersRow extends SupabaseDataRow {
   DateTime get createdAt => getField<DateTime>('created_at')!;
   set createdAt(DateTime value) => setField<DateTime>('created_at', value);
 
-  String get userUuid => getField<String>('user_uuid')!;
-  set userUuid(String value) => setField<String>('user_uuid', value);
-
   String? get fullName => getField<String>('full_name');
   set fullName(String? value) => setField<String>('full_name', value);
 
@@ -40,4 +37,7 @@ class CustomersRow extends SupabaseDataRow {
 
   String get phone => getField<String>('phone')!;
   set phone(String value) => setField<String>('phone', value);
+
+  String get userRef => getField<String>('user_ref')!;
+  set userRef(String value) => setField<String>('user_ref', value);
 }
