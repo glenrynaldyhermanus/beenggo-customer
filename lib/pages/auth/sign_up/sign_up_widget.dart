@@ -322,7 +322,8 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                               color: FlutterFlowTheme.of(context).primary,
                               size: 24.0,
                             ),
-                            fillColor: Colors.transparent,
+                            fillColor:
+                                FlutterFlowTheme.of(context).primaryBackground,
                             elevation: 2.0,
                             borderColor: FlutterFlowTheme.of(context).primary,
                             borderWidth: 2.0,
