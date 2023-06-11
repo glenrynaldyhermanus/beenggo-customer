@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -85,7 +86,17 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       locale: _locale,
       supportedLocales: const [Locale('en', '')],
-      theme: ThemeData(brightness: Brightness.light),
+      theme: ThemeData(
+        brightness: Brightness.light,
+        inputDecorationTheme: InputDecorationTheme(
+          floatingLabelStyle: TextStyle(color: Colors.black),
+        ),
+        textSelectionTheme: TextSelectionThemeData(
+          cursorColor: Colors.black,
+          selectionColor: Colors.black,
+          selectionHandleColor: Colors.black,
+        ),
+      ),
       themeMode: _themeMode,
       routerConfig: _router,
     );
