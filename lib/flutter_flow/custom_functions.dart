@@ -41,3 +41,19 @@ double countTotalFee(
 String firebaseFormattedPhone(String phone) {
   return phone.replaceAll(" ", "").replaceAll("-", "");
 }
+
+String greetingWord() {
+  // return greeting words like Good morning based on time
+  var now = new DateTime.now();
+  var hour = now.hour;
+  var minute = now.minute;
+  String greeting;
+  if (hour < 12) {
+    greeting = 'Good morning,';
+  } else if (hour < 18) {
+    greeting = 'Good afternoon,';
+  } else {
+    greeting = 'Good evening,';
+  }
+  return greeting;
+}
