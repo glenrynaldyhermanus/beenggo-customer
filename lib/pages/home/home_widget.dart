@@ -1,5 +1,6 @@
 import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -41,15 +42,21 @@ class _HomeWidgetState extends State<HomeWidget> {
       }
 
       if (_model.isRegistered!) {
+        _model.profile = await actions.loadCustomerProfile(
+          currentUserUid,
+        );
+        setState(() {
+          FFAppState().profile = _model.profile!;
+        });
+        return;
+      } else {
+        if (Navigator.of(context).canPop()) {
+          context.pop();
+        }
+        context.pushNamed('SignUp');
+
         return;
       }
-
-      if (Navigator.of(context).canPop()) {
-        context.pop();
-      }
-      context.pushNamed('SignUp');
-
-      return;
     });
   }
 
@@ -94,7 +101,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 style: FlutterFlowTheme.of(context).titleLarge,
                               ),
                               Text(
-                                loggedIn == true ? 'Glenss' : 'Guest',
+                                loggedIn == true
+                                    ? FFAppState().profile.fullName
+                                    : 'Guest',
                                 style: FlutterFlowTheme.of(context)
                                     .titleLarge
                                     .override(
@@ -164,7 +173,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   shape: BoxShape.circle,
                                 ),
                                 child: Image.network(
-                                  'https://i.ibb.co/wMKW8G4/user-placeholder.png',
+                                  loggedIn == true
+                                      ? valueOrDefault<String>(
+                                          FFAppState().profile.pictureUrl,
+                                          'https://i.ibb.co/wMKW8G4/user-placeholder.png',
+                                        )
+                                      : 'https://i.ibb.co/wMKW8G4/user-placeholder.png',
                                   fit: BoxFit.cover,
                                 ),
                               ),
