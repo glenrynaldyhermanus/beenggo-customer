@@ -94,7 +94,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 style: FlutterFlowTheme.of(context).titleLarge,
                               ),
                               Text(
-                                'Glen',
+                                loggedIn == true ? 'Glenss' : 'Guest',
                                 style: FlutterFlowTheme.of(context)
                                     .titleLarge
                                     .override(
