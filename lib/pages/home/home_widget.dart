@@ -44,7 +44,6 @@ class _HomeWidgetState extends State<HomeWidget> {
         return;
       }
 
-      context.safePop();
       if (Navigator.of(context).canPop()) {
         context.pop();
       }
