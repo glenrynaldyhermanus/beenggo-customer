@@ -11,12 +11,10 @@ import 'package:flutter/material.dart';
 
 Future<CustomerStruct?> loadCustomerProfile(String userRef) async {
   final result = await CustomersTable().queryRows(
-    queryFn: (q) => q
-        .eq(
-          'user_ref',
-          userRef,
-        )
-        .single(),
+    queryFn: (q) => q.eq(
+      'user_ref',
+      userRef,
+    ),
   );
 
   if (result.isNotEmpty) {
