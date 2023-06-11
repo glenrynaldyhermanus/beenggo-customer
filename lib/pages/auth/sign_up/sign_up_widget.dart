@@ -93,7 +93,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                       final selectedMedia =
                           await selectMediaWithSourceBottomSheet(
                         context: context,
-                        storageFolderPath: 'users/uploads',
+                        storageFolderPath: 'users/uploads/${currentUserUid}',
                         allowPhoto: true,
                       );
                       if (selectedMedia != null &&
@@ -335,7 +335,9 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                       'phone': currentPhoneNumber,
                       'user_ref': currentUserUid,
                     });
-
+                    if (Navigator.of(context).canPop()) {
+                      context.pop();
+                    }
                     context.pushNamed('Home');
                   },
                   text: 'Save',
