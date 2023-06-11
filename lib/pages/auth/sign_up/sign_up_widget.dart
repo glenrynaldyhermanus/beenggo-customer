@@ -93,7 +93,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                       final selectedMedia =
                           await selectMediaWithSourceBottomSheet(
                         context: context,
-                        storageFolderPath: 'users/uploads',
+                        storageFolderPath: 'users/uploads/${currentUserUid}',
                         allowPhoto: true,
                       );
                       if (selectedMedia != null &&
