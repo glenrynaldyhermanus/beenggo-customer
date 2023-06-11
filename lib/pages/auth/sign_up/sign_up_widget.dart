@@ -328,12 +328,12 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                 child: FFButtonWidget(
                   onPressed: () async {
                     await CustomersTable().insert({
-                      'user_uuid': currentUserUid,
                       'full_name': _model.textController.text,
                       'gender': _model.dropDownValue,
                       'birthdate': supaSerialize<DateTime>(_model.datePicked),
                       'picture_url': _model.uploadedFileUrl,
                       'phone': currentPhoneNumber,
+                      'user_ref': currentUserUid,
                     });
 
                     context.pushNamed('Home');
