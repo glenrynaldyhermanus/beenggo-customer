@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -149,7 +150,10 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                         shape: BoxShape.circle,
                       ),
                       child: Image.network(
-                        _model.uploadedFileUrl,
+                        valueOrDefault<String>(
+                          _model.uploadedFileUrl,
+                          'https://i.ibb.co/wMKW8G4/user-placeholder.png',
+                        ),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -322,8 +326,17 @@ class _SignUpWidgetState extends State<SignUpWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
                 child: FFButtonWidget(
-                  onPressed: () {
-                    print('Button pressed ...');
+                  onPressed: () async {
+                    await CustomersTable().insert({
+                      'user_uuid': currentUserUid,
+                      'full_name': _model.textController.text,
+                      'gender': _model.dropDownValue,
+                      'birthdate': supaSerialize<DateTime>(_model.datePicked),
+                      'picture_url': _model.uploadedFileUrl,
+                      'phone': currentPhoneNumber,
+                    });
+
+                    context.pushNamed('Home');
                   },
                   text: 'Save',
                   options: FFButtonOptions(

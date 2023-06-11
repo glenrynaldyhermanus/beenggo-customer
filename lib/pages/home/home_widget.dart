@@ -165,7 +165,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   shape: BoxShape.circle,
                                 ),
                                 child: Image.network(
-                                  'https://picsum.photos/seed/82/600',
+                                  'https://i.ibb.co/wMKW8G4/user-placeholder.png',
                                   fit: BoxFit.cover,
                                 ),
                               ),
