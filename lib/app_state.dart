@@ -50,6 +50,18 @@ class FFAppState extends ChangeNotifier {
         }
       }
     });
+    await _safeInitAsync(() async {
+      if (await secureStorage.read(key: 'ff_activeOrder') != null) {
+        try {
+          final serializedData =
+              await secureStorage.getString('ff_activeOrder') ?? '{}';
+          _activeOrder =
+              OrderStruct.fromSerializableMap(jsonDecode(serializedData));
+        } catch (e) {
+          print("Can't decode persisted data type. Error: $e.");
+        }
+      }
+    });
   }
 
   void update(VoidCallback callback) {
@@ -144,6 +156,22 @@ class FFAppState extends ChangeNotifier {
     ServiceStruct Function(ServiceStruct) updateFn,
   ) {
     _selectedServices[_index] = updateFn(_selectedServices[_index]);
+  }
+
+  OrderStruct _activeOrder = OrderStruct();
+  OrderStruct get activeOrder => _activeOrder;
+  set activeOrder(OrderStruct _value) {
+    _activeOrder = _value;
+    secureStorage.setString('ff_activeOrder', _value.serialize());
+  }
+
+  void deleteActiveOrder() {
+    secureStorage.delete(key: 'ff_activeOrder');
+  }
+
+  void updateActiveOrderStruct(Function(OrderStruct) updateFn) {
+    updateFn(_activeOrder);
+    secureStorage.setString('ff_activeOrder', _activeOrder.serialize());
   }
 }
 

@@ -593,6 +593,14 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(24.0, 48.0, 24.0, 48.0),
                 child: FFButtonWidget(
                   onPressed: () async {
+                    FFAppState().activeOrder = OrderStruct(
+                      orderServices: FFAppState().selectedServices,
+                      total: functions.countTotalFee(
+                          FFAppState().selectedServices.toList(),
+                          _model.additionalFees!.toList(),
+                          _model.discounts!.toList()),
+                    );
+
                     context.pushNamed('OrderSummary');
                   },
                   text: 'Order',

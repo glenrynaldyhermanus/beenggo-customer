@@ -78,14 +78,14 @@ class _OrderSummaryWidgetState extends State<OrderSummaryWidget> {
                 child: FFButtonWidget(
                   onPressed: () async {
                     await OrdersTable().insert({
-                      'order_no': 'Order123',
-                      'status': 'New',
-                      'is_paid': false,
-                      'total': 10000.0,
+                      'order_no':
+                          'ORD-MOD-${getCurrentTimestamp.microsecondsSinceEpoch.toString()}',
                       'shceduled_at':
                           supaSerialize<DateTime>(getCurrentTimestamp),
-                      'customer_id': 1,
-                      'id': FFAppState().profile.id,
+                      'status': 'New',
+                      'is_paid': false,
+                      'total': FFAppState().activeOrder.total,
+                      'customer_id': FFAppState().profile.id,
                     });
                   },
                   text: 'Order',
