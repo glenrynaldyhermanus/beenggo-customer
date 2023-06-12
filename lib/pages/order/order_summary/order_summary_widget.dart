@@ -77,6 +77,7 @@ class _OrderSummaryWidgetState extends State<OrderSummaryWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(24.0, 48.0, 24.0, 48.0),
                 child: FFButtonWidget(
                   onPressed: () async {
+
                     await OrdersTable().insert({
                       'order_no':
                           'ORD-MOD-${getCurrentTimestamp.microsecondsSinceEpoch.toString()}',
