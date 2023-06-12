@@ -5,8 +5,8 @@ import '/backend/schema/util/schema_util.dart';
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class SelectedServiceStruct extends BaseStruct {
-  SelectedServiceStruct({
+class ServiceStruct extends BaseStruct {
+  ServiceStruct({
     int? id,
     String? name,
     double? fee,
@@ -34,15 +34,14 @@ class SelectedServiceStruct extends BaseStruct {
   void incrementFee(double amount) => _fee = fee + amount;
   bool hasFee() => _fee != null;
 
-  static SelectedServiceStruct fromMap(Map<String, dynamic> data) =>
-      SelectedServiceStruct(
+  static ServiceStruct fromMap(Map<String, dynamic> data) => ServiceStruct(
         id: data['id'] as int?,
         name: data['name'] as String?,
         fee: castToType<double>(data['fee']),
       );
 
-  static SelectedServiceStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? SelectedServiceStruct.fromMap(data) : null;
+  static ServiceStruct? maybeFromMap(dynamic data) =>
+      data is Map<String, dynamic> ? ServiceStruct.fromMap(data) : null;
 
   Map<String, dynamic> toMap() => {
         'id': _id,
@@ -66,8 +65,8 @@ class SelectedServiceStruct extends BaseStruct {
         ),
       }.withoutNulls;
 
-  static SelectedServiceStruct fromSerializableMap(Map<String, dynamic> data) =>
-      SelectedServiceStruct(
+  static ServiceStruct fromSerializableMap(Map<String, dynamic> data) =>
+      ServiceStruct(
         id: deserializeParam(
           data['id'],
           ParamType.int,
@@ -86,11 +85,11 @@ class SelectedServiceStruct extends BaseStruct {
       );
 
   @override
-  String toString() => 'SelectedServiceStruct(${toMap()})';
+  String toString() => 'ServiceStruct(${toMap()})';
 
   @override
   bool operator ==(Object other) {
-    return other is SelectedServiceStruct &&
+    return other is ServiceStruct &&
         id == other.id &&
         name == other.name &&
         fee == other.fee;
@@ -100,12 +99,12 @@ class SelectedServiceStruct extends BaseStruct {
   int get hashCode => const ListEquality().hash([id, name, fee]);
 }
 
-SelectedServiceStruct createSelectedServiceStruct({
+ServiceStruct createServiceStruct({
   int? id,
   String? name,
   double? fee,
 }) =>
-    SelectedServiceStruct(
+    ServiceStruct(
       id: id,
       name: name,
       fee: fee,

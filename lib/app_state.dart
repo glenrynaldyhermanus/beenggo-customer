@@ -99,31 +99,6 @@ class FFAppState extends ChangeNotifier {
     secureStorage.setString('ff_customerVehicle', _customerVehicle.serialize());
   }
 
-  List<SelectedServiceStruct> _selectedServices = [];
-  List<SelectedServiceStruct> get selectedServices => _selectedServices;
-  set selectedServices(List<SelectedServiceStruct> _value) {
-    _selectedServices = _value;
-  }
-
-  void addToSelectedServices(SelectedServiceStruct _value) {
-    _selectedServices.add(_value);
-  }
-
-  void removeFromSelectedServices(SelectedServiceStruct _value) {
-    _selectedServices.remove(_value);
-  }
-
-  void removeAtIndexFromSelectedServices(int _index) {
-    _selectedServices.removeAt(_index);
-  }
-
-  void updateSelectedServicesAtIndex(
-    int _index,
-    SelectedServiceStruct Function(SelectedServiceStruct) updateFn,
-  ) {
-    _selectedServices[_index] = updateFn(_selectedServices[_index]);
-  }
-
   CustomerStruct _profile = CustomerStruct();
   CustomerStruct get profile => _profile;
   set profile(CustomerStruct _value) {
@@ -144,6 +119,31 @@ class FFAppState extends ChangeNotifier {
   bool get isLoginSkippable => _isLoginSkippable;
   set isLoginSkippable(bool _value) {
     _isLoginSkippable = _value;
+  }
+
+  List<ServiceStruct> _selectedServices = [];
+  List<ServiceStruct> get selectedServices => _selectedServices;
+  set selectedServices(List<ServiceStruct> _value) {
+    _selectedServices = _value;
+  }
+
+  void addToSelectedServices(ServiceStruct _value) {
+    _selectedServices.add(_value);
+  }
+
+  void removeFromSelectedServices(ServiceStruct _value) {
+    _selectedServices.remove(_value);
+  }
+
+  void removeAtIndexFromSelectedServices(int _index) {
+    _selectedServices.removeAt(_index);
+  }
+
+  void updateSelectedServicesAtIndex(
+    int _index,
+    ServiceStruct Function(ServiceStruct) updateFn,
+  ) {
+    _selectedServices[_index] = updateFn(_selectedServices[_index]);
   }
 }
 

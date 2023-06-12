@@ -1,3 +1,4 @@
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -56,7 +57,7 @@ class _OrderSummaryWidgetState extends State<OrderSummaryWidget> {
               size: 24.0,
             ),
             onPressed: () async {
-              context.pop();
+              context.safePop();
             },
           ),
           title: Text(
@@ -76,7 +77,16 @@ class _OrderSummaryWidgetState extends State<OrderSummaryWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(24.0, 48.0, 24.0, 48.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    context.pushNamed('OrderSummary');
+                    await OrdersTable().insert({
+                      'order_no': 'Order123',
+                      'status': 'New',
+                      'is_paid': false,
+                      'total': 10000.0,
+                      'shceduled_at':
+                          supaSerialize<DateTime>(getCurrentTimestamp),
+                      'customer_id': 1,
+                      'id': FFAppState().profile.id,
+                    });
                   },
                   text: 'Order',
                   options: FFButtonOptions(
