@@ -77,7 +77,7 @@ class _OrderSummaryWidgetState extends State<OrderSummaryWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(24.0, 48.0, 24.0, 48.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    await OrdersTable().insert({
+                    _model.order = await OrdersTable().insert({
                       'order_no':
                           'ORD-MOD-${getCurrentTimestamp.microsecondsSinceEpoch.toString()}',
                       'shceduled_at':
@@ -87,6 +87,26 @@ class _OrderSummaryWidgetState extends State<OrderSummaryWidget> {
                       'total': FFAppState().activeOrder.total,
                       'customer_id': FFAppState().profile.id,
                     });
+                    await showDialog(
+                      context: context,
+                      builder: (alertDialogContext) {
+                        return AlertDialog(
+                          title: Text('Test'),
+                          content: Text(_model.order!.id.toString()),
+                          actions: [
+                            TextButton(
+                              onPressed: () =>
+                                  Navigator.pop(alertDialogContext),
+                              child: Text('Ok'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+
+                    context.pushNamed('OrderSummary');
+
+                    setState(() {});
                   },
                   text: 'Order',
                   options: FFButtonOptions(

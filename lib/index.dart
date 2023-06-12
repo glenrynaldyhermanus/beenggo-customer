@@ -13,3 +13,5 @@ export '/pages/order/order_service_form/order_service_form_widget.dart'
 export '/pages/order/order_summary/order_summary_widget.dart'
     show OrderSummaryWidget;
 export '/pages/auth/sign_up/sign_up_widget.dart' show SignUpWidget;
+export '/pages/order/order_detail/order_detail_widget.dart'
+    show OrderDetailWidget;

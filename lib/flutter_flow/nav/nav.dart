@@ -134,6 +134,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'SignUp',
           path: '/signUp',
           builder: (context, params) => SignUpWidget(),
+        ),
+        FFRoute(
+          name: 'OrderDetail',
+          path: '/orderDetail',
+          requireAuth: true,
+          builder: (context, params) => OrderDetailWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
