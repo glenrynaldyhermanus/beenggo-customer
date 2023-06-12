@@ -35,9 +35,9 @@ class OrdersRow extends SupabaseDataRow {
   double get total => getField<double>('total')!;
   set total(double value) => setField<double>('total', value);
 
-  int get mechanicId => getField<int>('mechanic_id')!;
-  set mechanicId(int value) => setField<int>('mechanic_id', value);
-
   int get customerId => getField<int>('customer_id')!;
   set customerId(int value) => setField<int>('customer_id', value);
+
+  int? get mechanicId => getField<int>('mechanic_id');
+  set mechanicId(int? value) => setField<int>('mechanic_id', value);
 }

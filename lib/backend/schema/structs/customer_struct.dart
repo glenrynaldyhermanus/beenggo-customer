@@ -12,11 +12,13 @@ class CustomerStruct extends BaseStruct {
     String? gender,
     String? phone,
     String? pictureUrl,
+    int? id,
   })  : _fullName = fullName,
         _birthdate = birthdate,
         _gender = gender,
         _phone = phone,
-        _pictureUrl = pictureUrl;
+        _pictureUrl = pictureUrl,
+        _id = id;
 
   // "fullName" field.
   String? _fullName;
@@ -48,12 +50,20 @@ class CustomerStruct extends BaseStruct {
   set pictureUrl(String? val) => _pictureUrl = val;
   bool hasPictureUrl() => _pictureUrl != null;
 
+  // "id" field.
+  int? _id;
+  int get id => _id ?? 0;
+  set id(int? val) => _id = val;
+  void incrementId(int amount) => _id = id + amount;
+  bool hasId() => _id != null;
+
   static CustomerStruct fromMap(Map<String, dynamic> data) => CustomerStruct(
         fullName: data['fullName'] as String?,
         birthdate: data['birthdate'] as DateTime?,
         gender: data['gender'] as String?,
         phone: data['phone'] as String?,
         pictureUrl: data['picture_url'] as String?,
+        id: data['id'] as int?,
       );
 
   static CustomerStruct? maybeFromMap(dynamic data) =>
@@ -65,6 +75,7 @@ class CustomerStruct extends BaseStruct {
         'gender': _gender,
         'phone': _phone,
         'picture_url': _pictureUrl,
+        'id': _id,
       }.withoutNulls;
 
   @override
@@ -88,6 +99,10 @@ class CustomerStruct extends BaseStruct {
         'picture_url': serializeParam(
           _pictureUrl,
           ParamType.String,
+        ),
+        'id': serializeParam(
+          _id,
+          ParamType.int,
         ),
       }.withoutNulls;
 
@@ -118,6 +133,11 @@ class CustomerStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
+        id: deserializeParam(
+          data['id'],
+          ParamType.int,
+          false,
+        ),
       );
 
   @override
@@ -130,12 +150,13 @@ class CustomerStruct extends BaseStruct {
         birthdate == other.birthdate &&
         gender == other.gender &&
         phone == other.phone &&
-        pictureUrl == other.pictureUrl;
+        pictureUrl == other.pictureUrl &&
+        id == other.id;
   }
 
   @override
   int get hashCode => const ListEquality()
-      .hash([fullName, birthdate, gender, phone, pictureUrl]);
+      .hash([fullName, birthdate, gender, phone, pictureUrl, id]);
 }
 
 CustomerStruct createCustomerStruct({
@@ -144,6 +165,7 @@ CustomerStruct createCustomerStruct({
   String? gender,
   String? phone,
   String? pictureUrl,
+  int? id,
 }) =>
     CustomerStruct(
       fullName: fullName,
@@ -151,4 +173,5 @@ CustomerStruct createCustomerStruct({
       gender: gender,
       phone: phone,
       pictureUrl: pictureUrl,
+      id: id,
     );

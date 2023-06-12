@@ -11,7 +11,7 @@ import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/auth/firebase_auth/auth_util.dart';
 
-double countServiceFee(List<SelectedServiceStruct> services) {
+double countServiceFee(List<ServiceStruct> services) {
   // count total fee from SelectedServiceStruct
   double totalFee = 0.0;
   for (var service in services) {
@@ -21,7 +21,7 @@ double countServiceFee(List<SelectedServiceStruct> services) {
 }
 
 double countTotalFee(
-  List<SelectedServiceStruct> services,
+  List<ServiceStruct> services,
   List<AdditionalFeeStruct> additionalFees,
   List<DiscountStruct> discounts,
 ) {

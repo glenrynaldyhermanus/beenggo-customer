@@ -20,6 +20,7 @@ Future<CustomerStruct?> loadCustomerProfile(String userRef) async {
   if (result.isNotEmpty) {
     final customer = result[0];
     return CustomerStruct(
+        id: customer.id,
         fullName: customer.fullName,
         birthdate: customer.birthdate,
         gender: customer.gender,

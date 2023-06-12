@@ -180,7 +180,7 @@ class _OrderServiceFormWidgetState extends State<OrderServiceFormWidget> {
                                       onPressed: () async {
                                         FFAppState().update(() {
                                           FFAppState().addToSelectedServices(
-                                              SelectedServiceStruct(
+                                              ServiceStruct(
                                             id: listViewServicesRow.id,
                                             name: listViewServicesRow.name,
                                             fee: listViewServicesRow.fee,
