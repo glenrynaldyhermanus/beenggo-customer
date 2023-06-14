@@ -49,7 +49,7 @@ class _OrderLocationFormWidgetState extends State<OrderLocationFormWidget> {
         resizeToAvoidBottomInset: false,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
@@ -81,7 +81,7 @@ class _OrderLocationFormWidgetState extends State<OrderLocationFormWidget> {
               Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                  color: FlutterFlowTheme.of(context).primaryBackground,
                 ),
                 child: Padding(
                   padding:
@@ -106,7 +106,7 @@ class _OrderLocationFormWidgetState extends State<OrderLocationFormWidget> {
                     ),
                     buttonOptions: FFButtonOptions(
                       height: 50.0,
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      color: FlutterFlowTheme.of(context).primaryBackground,
                       textStyle: FlutterFlowTheme.of(context).bodyLarge,
                       elevation: 0.0,
                       borderSide: BorderSide(

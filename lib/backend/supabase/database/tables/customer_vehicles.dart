@@ -1,19 +1,19 @@
 import '../database.dart';
 
-class CustomerVehicleTable extends SupabaseTable<CustomerVehicleRow> {
+class CustomerVehiclesTable extends SupabaseTable<CustomerVehiclesRow> {
   @override
-  String get tableName => 'customer_vehicle';
+  String get tableName => 'customer_vehicles';
 
   @override
-  CustomerVehicleRow createRow(Map<String, dynamic> data) =>
-      CustomerVehicleRow(data);
+  CustomerVehiclesRow createRow(Map<String, dynamic> data) =>
+      CustomerVehiclesRow(data);
 }
 
-class CustomerVehicleRow extends SupabaseDataRow {
-  CustomerVehicleRow(Map<String, dynamic> data) : super(data);
+class CustomerVehiclesRow extends SupabaseDataRow {
+  CustomerVehiclesRow(Map<String, dynamic> data) : super(data);
 
   @override
-  SupabaseTable get table => CustomerVehicleTable();
+  SupabaseTable get table => CustomerVehiclesTable();
 
   int get id => getField<int>('id')!;
   set id(int value) => setField<int>('id', value);
@@ -38,4 +38,7 @@ class CustomerVehicleRow extends SupabaseDataRow {
 
   bool get isActive => getField<bool>('is_active')!;
   set isActive(bool value) => setField<bool>('is_active', value);
+
+  String get type => getField<String>('type')!;
+  set type(String value) => setField<String>('type', value);
 }
