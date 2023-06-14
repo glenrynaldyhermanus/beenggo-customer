@@ -54,7 +54,7 @@ class _OrderSummaryWidgetState extends State<OrderSummaryWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
@@ -71,7 +71,7 @@ class _OrderSummaryWidgetState extends State<OrderSummaryWidget> {
             },
           ),
           title: Text(
-            'OrderSummary',
+            'Rangkuman Order',
             style: FlutterFlowTheme.of(context).headlineSmall,
           ),
           actions: [],
@@ -84,7 +84,123 @@ class _OrderSummaryWidgetState extends State<OrderSummaryWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24.0, 48.0, 24.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                child: Material(
+                  color: Colors.transparent,
+                  elevation: 0.0,
+                  child: Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                    ),
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          24.0, 16.0, 24.0, 16.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Lokasi Pengerjaan',
+                            style: FlutterFlowTheme.of(context).bodyMedium,
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    'Lokasi Pengerjaan',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyLarge,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                child: Material(
+                  color: Colors.transparent,
+                  elevation: 0.0,
+                  child: Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                    ),
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          24.0, 16.0, 24.0, 16.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Layanan',
+                            style: FlutterFlowTheme.of(context).bodyMedium,
+                          ),
+                          Builder(
+                            builder: (context) {
+                              final services =
+                                  FFAppState().selectedServices.toList();
+                              return Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: List.generate(services.length,
+                                    (servicesIndex) {
+                                  final servicesItem = services[servicesIndex];
+                                  return Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 8.0, 0.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Expanded(
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 8.0, 0.0),
+                                            child: Text(
+                                              servicesItem.name,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyLarge,
+                                            ),
+                                          ),
+                                        ),
+                                        Text(
+                                          formatNumber(
+                                            servicesItem.fee,
+                                            formatType: FormatType.decimal,
+                                            decimalType:
+                                                DecimalType.commaDecimal,
+                                            currency: 'Rp',
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyLarge,
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                }),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                 child: Container(
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -100,225 +216,21 @@ class _OrderSummaryWidgetState extends State<OrderSummaryWidget> {
                   ),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
-                    child: Row(
+                        EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 16.0),
+                    child: Column(
                       mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
+                        Text(
+                          'Summary',
+                          style: FlutterFlowTheme.of(context).bodyMedium,
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 8.0, 0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                'Summary',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 8.0, 0.0, 0.0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 4.0, 0.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            'Service Fee',
-                                            style: FlutterFlowTheme.of(context)
-                                                .titleMedium,
-                                          ),
-                                          Text(
-                                            FFAppState()
-                                                        .selectedServices
-                                                        .length >
-                                                    0
-                                                ? formatNumber(
-                                                    functions.countServiceFee(
-                                                        FFAppState()
-                                                            .selectedServices
-                                                            .toList()),
-                                                    formatType:
-                                                        FormatType.decimal,
-                                                    decimalType: DecimalType
-                                                        .commaDecimal,
-                                                    currency: 'Rp',
-                                                  )
-                                                : '(No service selected)',
-                                            style: FlutterFlowTheme.of(context)
-                                                .titleMedium,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    FutureBuilder<List<AdditionalFeesRow>>(
-                                      future: AdditionalFeesTable().queryRows(
-                                        queryFn: (q) => q
-                                            .eq(
-                                              'is_active',
-                                              true,
-                                            )
-                                            .order('fee'),
-                                      ),
-                                      builder: (context, snapshot) {
-                                        // Customize what your widget looks like when it's loading.
-                                        if (!snapshot.hasData) {
-                                          return Center(
-                                            child: SizedBox(
-                                              width: 50.0,
-                                              height: 50.0,
-                                              child: CircularProgressIndicator(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                              ),
-                                            ),
-                                          );
-                                        }
-                                        List<AdditionalFeesRow>
-                                            columnAdditionalFeesRowList =
-                                            snapshot.data!;
-                                        return Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: List.generate(
-                                              columnAdditionalFeesRowList
-                                                  .length, (columnIndex) {
-                                            final columnAdditionalFeesRow =
-                                                columnAdditionalFeesRowList[
-                                                    columnIndex];
-                                            return Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 4.0, 0.0, 0.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Text(
-                                                    columnAdditionalFeesRow
-                                                        .name,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleMedium,
-                                                  ),
-                                                  Text(
-                                                    columnAdditionalFeesRow
-                                                                .fee ==
-                                                            0.0
-                                                        ? 'Gratis'
-                                                        : formatNumber(
-                                                            columnAdditionalFeesRow
-                                                                .fee,
-                                                            formatType:
-                                                                FormatType
-                                                                    .decimal,
-                                                            decimalType:
-                                                                DecimalType
-                                                                    .commaDecimal,
-                                                            currency: 'Rp',
-                                                          ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleMedium,
-                                                  ),
-                                                ],
-                                              ),
-                                            );
-                                          }),
-                                        );
-                                      },
-                                    ),
-                                    FutureBuilder<List<DiscountsRow>>(
-                                      future: DiscountsTable().queryRows(
-                                        queryFn: (q) => q
-                                            .eq(
-                                              'is_active',
-                                              true,
-                                            )
-                                            .order('discount'),
-                                      ),
-                                      builder: (context, snapshot) {
-                                        // Customize what your widget looks like when it's loading.
-                                        if (!snapshot.hasData) {
-                                          return Center(
-                                            child: SizedBox(
-                                              width: 50.0,
-                                              height: 50.0,
-                                              child: CircularProgressIndicator(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                              ),
-                                            ),
-                                          );
-                                        }
-                                        List<DiscountsRow>
-                                            columnDiscountsRowList =
-                                            snapshot.data!;
-                                        return Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: List.generate(
-                                              columnDiscountsRowList.length,
-                                              (columnIndex) {
-                                            final columnDiscountsRow =
-                                                columnDiscountsRowList[
-                                                    columnIndex];
-                                            return Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 4.0, 0.0, 0.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Text(
-                                                    columnDiscountsRow.name,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleMedium,
-                                                  ),
-                                                  Text(
-                                                    '(${formatNumber(
-                                                      columnDiscountsRow
-                                                          .discount,
-                                                      formatType:
-                                                          FormatType.decimal,
-                                                      decimalType: DecimalType
-                                                          .commaDecimal,
-                                                      currency: 'Rp',
-                                                    )})',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleMedium
-                                                        .override(
-                                                          fontFamily: 'Raleway',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .success,
-                                                        ),
-                                                  ),
-                                                ],
-                                              ),
-                                            );
-                                          }),
-                                        );
-                                      },
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Divider(
-                                height: 24.0,
-                                thickness: 1.0,
-                                color: FlutterFlowTheme.of(context).alternate,
-                              ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 4.0, 0.0, 0.0),
@@ -328,31 +240,208 @@ class _OrderSummaryWidgetState extends State<OrderSummaryWidget> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      'Total',
+                                      'Service Fee',
                                       style: FlutterFlowTheme.of(context)
-                                          .headlineSmall,
+                                          .titleMedium,
                                     ),
                                     Text(
                                       FFAppState().selectedServices.length > 0
                                           ? formatNumber(
-                                              functions.countTotalFee(
+                                              functions.countServiceFee(
                                                   FFAppState()
                                                       .selectedServices
-                                                      .toList(),
-                                                  _model.additionalFees!
-                                                      .toList(),
-                                                  _model.discounts!.toList()),
+                                                      .toList()),
                                               formatType: FormatType.decimal,
                                               decimalType:
                                                   DecimalType.commaDecimal,
                                               currency: 'Rp',
                                             )
-                                          : 'Rp0',
+                                          : '(No service selected)',
                                       style: FlutterFlowTheme.of(context)
-                                          .headlineSmall,
+                                          .titleMedium,
                                     ),
                                   ],
                                 ),
+                              ),
+                              FutureBuilder<List<AdditionalFeesRow>>(
+                                future: AdditionalFeesTable().queryRows(
+                                  queryFn: (q) => q
+                                      .eq(
+                                        'is_active',
+                                        true,
+                                      )
+                                      .order('fee'),
+                                ),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 50.0,
+                                        height: 50.0,
+                                        child: CircularProgressIndicator(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                        ),
+                                      ),
+                                    );
+                                  }
+                                  List<AdditionalFeesRow>
+                                      columnAdditionalFeesRowList =
+                                      snapshot.data!;
+                                  return Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: List.generate(
+                                        columnAdditionalFeesRowList.length,
+                                        (columnIndex) {
+                                      final columnAdditionalFeesRow =
+                                          columnAdditionalFeesRowList[
+                                              columnIndex];
+                                      return Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 4.0, 0.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              columnAdditionalFeesRow.name,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleMedium,
+                                            ),
+                                            Text(
+                                              columnAdditionalFeesRow.fee == 0.0
+                                                  ? 'Gratis'
+                                                  : formatNumber(
+                                                      columnAdditionalFeesRow
+                                                          .fee,
+                                                      formatType:
+                                                          FormatType.decimal,
+                                                      decimalType: DecimalType
+                                                          .commaDecimal,
+                                                      currency: 'Rp',
+                                                    ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleMedium,
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    }),
+                                  );
+                                },
+                              ),
+                              FutureBuilder<List<DiscountsRow>>(
+                                future: DiscountsTable().queryRows(
+                                  queryFn: (q) => q
+                                      .eq(
+                                        'is_active',
+                                        true,
+                                      )
+                                      .order('discount'),
+                                ),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 50.0,
+                                        height: 50.0,
+                                        child: CircularProgressIndicator(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                        ),
+                                      ),
+                                    );
+                                  }
+                                  List<DiscountsRow> columnDiscountsRowList =
+                                      snapshot.data!;
+                                  return Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: List.generate(
+                                        columnDiscountsRowList.length,
+                                        (columnIndex) {
+                                      final columnDiscountsRow =
+                                          columnDiscountsRowList[columnIndex];
+                                      return Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 4.0, 0.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              columnDiscountsRow.name,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleMedium,
+                                            ),
+                                            Text(
+                                              '(${formatNumber(
+                                                columnDiscountsRow.discount,
+                                                formatType: FormatType.decimal,
+                                                decimalType:
+                                                    DecimalType.commaDecimal,
+                                                currency: 'Rp',
+                                              )})',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleMedium
+                                                      .override(
+                                                        fontFamily: 'Raleway',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .success,
+                                                      ),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    }),
+                                  );
+                                },
+                              ),
+                            ],
+                          ),
+                        ),
+                        Divider(
+                          height: 24.0,
+                          thickness: 1.0,
+                          color: FlutterFlowTheme.of(context).alternate,
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 4.0, 0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Total',
+                                style:
+                                    FlutterFlowTheme.of(context).headlineSmall,
+                              ),
+                              Text(
+                                FFAppState().selectedServices.length > 0
+                                    ? formatNumber(
+                                        functions.countTotalFee(
+                                            FFAppState()
+                                                .selectedServices
+                                                .toList(),
+                                            _model.additionalFees!.toList(),
+                                            _model.discounts!.toList()),
+                                        formatType: FormatType.decimal,
+                                        decimalType: DecimalType.commaDecimal,
+                                        currency: 'Rp',
+                                      )
+                                    : 'Rp0',
+                                style:
+                                    FlutterFlowTheme.of(context).headlineSmall,
                               ),
                             ],
                           ),
