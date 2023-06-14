@@ -57,3 +57,11 @@ String greetingWord() {
   }
   return greeting;
 }
+
+double pointToLatitude(LatLng latLng) {
+  return latLng.latitude;
+}
+
+double pointToLongitude(LatLng latLng) {
+  return latLng.longitude;
+}

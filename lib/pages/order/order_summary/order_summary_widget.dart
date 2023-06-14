@@ -464,6 +464,11 @@ class _OrderSummaryWidgetState extends State<OrderSummaryWidget> {
                       'is_paid': false,
                       'total': FFAppState().activeOrder.total,
                       'customer_id': FFAppState().profile.id,
+                      'order_address': FFAppState().customerAddress,
+                      'order_latitude': functions
+                          .pointToLatitude(FFAppState().customerLatLng!),
+                      'order_longitude': functions
+                          .pointToLongitude(FFAppState().customerLatLng!),
                     });
                     await showDialog(
                       context: context,
