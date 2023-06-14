@@ -401,6 +401,7 @@ class _OrderVehicleFormWidgetState extends State<OrderVehicleFormWidget> {
                           brand: _model.textController2.text,
                           year: _model.textController4.text,
                           color: _model.textController5.text,
+                          type: _model.textController3.text,
                         );
                       });
                       context.safePop();
