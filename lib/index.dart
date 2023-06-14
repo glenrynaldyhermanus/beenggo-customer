@@ -13,5 +13,3 @@ export '/pages/order/order_summary/order_summary_widget.dart'
 export '/pages/auth/sign_up/sign_up_widget.dart' show SignUpWidget;
 export '/pages/order/order_detail/order_detail_widget.dart'
     show OrderDetailWidget;
-export '/pages/order/order_location_form_copy/order_location_form_copy_widget.dart'
-    show OrderLocationFormCopyWidget;

@@ -132,11 +132,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/orderDetail',
           requireAuth: true,
           builder: (context, params) => OrderDetailWidget(),
-        ),
-        FFRoute(
-          name: 'OrderLocationFormCopy',
-          path: '/orderLocationFormCopy',
-          builder: (context, params) => OrderLocationFormCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
