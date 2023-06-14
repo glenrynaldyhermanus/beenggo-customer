@@ -435,7 +435,7 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
                                           'is_active',
                                           true,
                                         )
-                                        .order('sequence'),
+                                        .order('sequence', ascending: true),
                                   ),
                                   builder: (context, snapshot) {
                                     // Customize what your widget looks like when it's loading.
