@@ -496,45 +496,54 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
-                child: Material(
-                  color: Colors.transparent,
-                  elevation: 3.0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 1.0,
-                    height: 48.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).primary,
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    context.pushNamed('OrderSummary');
+                  },
+                  child: Material(
+                    color: Colors.transparent,
+                    elevation: 3.0,
+                    shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.0),
-                      border: Border.all(
-                        width: 1.0,
-                      ),
                     ),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Expanded(
-                            child: Text(
-                              'Order - ${FFAppState().selectedServices.length.toString()} layanan',
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 1.0,
+                      height: 48.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).primary,
+                        borderRadius: BorderRadius.circular(8.0),
+                        border: Border.all(
+                          width: 1.0,
+                        ),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 0.0, 16.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Expanded(
+                              child: Text(
+                                'Order - ${FFAppState().selectedServices.length.toString()} layanan',
+                                style: FlutterFlowTheme.of(context).titleSmall,
+                              ),
+                            ),
+                            Text(
+                              formatNumber(
+                                functions.countServiceFee(
+                                    FFAppState().selectedServices.toList()),
+                                formatType: FormatType.decimal,
+                                decimalType: DecimalType.commaDecimal,
+                                currency: 'Rp',
+                              ),
                               style: FlutterFlowTheme.of(context).titleSmall,
                             ),
-                          ),
-                          Text(
-                            formatNumber(
-                              functions.countServiceFee(
-                                  FFAppState().selectedServices.toList()),
-                              formatType: FormatType.decimal,
-                              decimalType: DecimalType.commaDecimal,
-                              currency: 'Rp',
-                            ),
-                            style: FlutterFlowTheme.of(context).titleSmall,
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
