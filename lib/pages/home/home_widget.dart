@@ -101,7 +101,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                               Text(
                                 valueOrDefault<String>(
                                   functions.greetingWord(),
-                                  'Hello,',
+                                  'Halo,',
                                 ),
                                 style: FlutterFlowTheme.of(context).titleLarge,
                               ),
@@ -208,7 +208,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 0.0, 0.0),
                               child: Text(
-                                'Your bookings',
+                                'Booking terakhir',
                                 style: FlutterFlowTheme.of(context).titleMedium,
                               ),
                             ),
@@ -337,7 +337,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 0.0, 0.0),
                               child: Text(
-                                'Call our mechanics',
+                                'Panggil mekanik kami',
                                 style: FlutterFlowTheme.of(context).titleMedium,
                               ),
                             ),
@@ -381,7 +381,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 }.withoutNulls,
                                               );
                                             },
-                                            text: 'Car',
+                                            text: 'Mobil',
                                             options: FFButtonOptions(
                                               width: 80.0,
                                               height: 40.0,
@@ -454,7 +454,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 }.withoutNulls,
                                               );
                                             },
-                                            text: 'Bike',
+                                            text: 'Motor',
                                             options: FFButtonOptions(
                                               width: 80.0,
                                               height: 40.0,
@@ -508,7 +508,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 0.0, 0.0),
                               child: Text(
-                                'Some articles for you',
+                                'Artikel untukmu',
                                 style: FlutterFlowTheme.of(context).titleMedium,
                               ),
                             ),

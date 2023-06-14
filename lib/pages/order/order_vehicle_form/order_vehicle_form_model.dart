@@ -24,6 +24,9 @@ class OrderVehicleFormModel extends FlutterFlowModel {
   // State field(s) for TextField widget.
   TextEditingController? textController4;
   String? Function(BuildContext, String?)? textController4Validator;
+  // State field(s) for TextField widget.
+  TextEditingController? textController5;
+  String? Function(BuildContext, String?)? textController5Validator;
 
   /// Initialization and disposal methods.
 
@@ -35,6 +38,7 @@ class OrderVehicleFormModel extends FlutterFlowModel {
     textController2?.dispose();
     textController3?.dispose();
     textController4?.dispose();
+    textController5?.dispose();
   }
 
   /// Action blocks are added here.

@@ -117,14 +117,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => OrderVehicleFormWidget(),
         ),
         FFRoute(
-          name: 'OrderServiceForm',
-          path: '/orderServiceForm',
-          builder: (context, params) => OrderServiceFormWidget(
-            vehicleCategoryId:
-                params.getParam('vehicleCategoryId', ParamType.int),
-          ),
-        ),
-        FFRoute(
           name: 'OrderSummary',
           path: '/orderSummary',
           requireAuth: true,

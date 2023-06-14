@@ -94,10 +94,10 @@ class _OTPVerificationWidgetState extends State<OTPVerificationWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   24.0, 64.0, 24.0, 24.0),
                               child: Text(
-                                'Our mechanics is one tap away',
+                                'Mekanik kami tinggal selangkah lagi',
                                 textAlign: TextAlign.center,
                                 style:
-                                    FlutterFlowTheme.of(context).displaySmall,
+                                    FlutterFlowTheme.of(context).headlineMedium,
                               ),
                             ),
                           ),
@@ -204,7 +204,7 @@ class _OTPVerificationWidgetState extends State<OTPVerificationWidget> {
                                   }
                                   if (_shouldSetState) setState(() {});
                                 },
-                                text: 'Let\'s Go!',
+                                text: 'Ayo Mulai!',
                                 options: FFButtonOptions(
                                   width: double.infinity,
                                   height: 56.0,

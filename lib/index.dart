@@ -8,8 +8,6 @@ export '/pages/order/order_location_form/order_location_form_widget.dart'
     show OrderLocationFormWidget;
 export '/pages/order/order_vehicle_form/order_vehicle_form_widget.dart'
     show OrderVehicleFormWidget;
-export '/pages/order/order_service_form/order_service_form_widget.dart'
-    show OrderServiceFormWidget;
 export '/pages/order/order_summary/order_summary_widget.dart'
     show OrderSummaryWidget;
 export '/pages/auth/sign_up/sign_up_widget.dart' show SignUpWidget;
