@@ -22,19 +22,25 @@ double countServiceFee(List<ServiceStruct> services) {
 
 double countTotalFee(
   List<ServiceStruct> services,
-  List<AdditionalFeeStruct> additionalFees,
-  List<DiscountStruct> discounts,
+  List<AdditionalFeeStruct>? additionalFees,
+  List<DiscountStruct>? discounts,
 ) {
   double totalFee = 0.0;
   for (var service in services) {
     totalFee += service.fee;
   }
-  for (var fee in additionalFees) {
-    totalFee += fee.fee;
+  if (additionalFees != null) {
+    for (var fee in additionalFees!) {
+      totalFee += fee.fee;
+    }
   }
-  for (var discount in discounts) {
-    totalFee -= discount.discount;
+
+  if (discounts != null) {
+    for (var discount in discounts) {
+      totalFee -= discount.discount;
+    }
   }
+
   return totalFee;
 }
 

@@ -336,12 +336,9 @@ class _OrderSummaryWidgetState extends State<OrderSummaryWidget> {
                                       FFAppState().selectedServices.length > 0
                                           ? formatNumber(
                                               functions.countTotalFee(
-                                                  FFAppState()
-                                                      .selectedServices
-                                                      .toList(),
-                                                  _model.additionalFees!
-                                                      .toList(),
-                                                  _model.discounts!.toList()),
+                                                  FFAppState().selectedServices,
+                                                  _model.additionalFees,
+                                                  _model.discounts),
                                               formatType: FormatType.decimal,
                                               decimalType:
                                                   DecimalType.commaDecimal,
