@@ -95,6 +95,8 @@ class _OrderLocationFormWidgetState extends State<OrderLocationFormWidget> {
                         'AIzaSyBlwTGUVK0YIDlGaWZ7S8zNbNLSWfyj47Y',
                     onSelect: (place) async {
                       setState(() => _model.placePickerValue = place);
+                      (await _model.googleMapsController.future).animateCamera(
+                          CameraUpdate.newLatLng(place.latLng.toGoogleMaps()));
                     },
                     defaultText: 'Cari alamat',
                     icon: Icon(
@@ -135,7 +137,7 @@ class _OrderLocationFormWidgetState extends State<OrderLocationFormWidget> {
                             onCameraIdle: (latLng) =>
                                 _model.googleMapsCenter = latLng,
                             initialLocation: _model.googleMapsCenter ??=
-                                LatLng(-6.2295695, 106.8471168),
+                                _model.placePickerValue.latLng,
                             markerColor: GoogleMarkerColor.violet,
                             mapType: MapType.normal,
                             style: GoogleMapStyle.dark,
