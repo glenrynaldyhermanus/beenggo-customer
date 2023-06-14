@@ -467,7 +467,9 @@ class _OrderSummaryWidgetState extends State<OrderSummaryWidget> {
                                       .headlineSmall,
                                 ),
                                 Text(
-                                  FFAppState().selectedServices.length > 0
+                                  FFAppState().selectedServices.length > 0 &&
+                                          _model.additionalFees != null &&
+                                          _model.discounts != null
                                       ? formatNumber(
                                           functions.countTotalFee(
                                               FFAppState().selectedServices,
