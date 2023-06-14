@@ -430,10 +430,9 @@ class _OrderSummaryWidgetState extends State<OrderSummaryWidget> {
                                     ? formatNumber(
                                         functions.countTotalFee(
                                             FFAppState()
-                                                .selectedServices
-                                                .toList(),
-                                            _model.additionalFees!.toList(),
-                                            _model.discounts!.toList()),
+                                                .selectedServices,
+                                            _model.additionalFees!,
+                                            _model.discounts!),
                                         formatType: FormatType.decimal,
                                         decimalType: DecimalType.commaDecimal,
                                         currency: 'Rp',
