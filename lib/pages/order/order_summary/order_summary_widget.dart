@@ -113,8 +113,8 @@ class _OrderSummaryWidgetState extends State<OrderSummaryWidget> {
                                 Expanded(
                                   child: Text(
                                     FFAppState().customerAddress,
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyLarge,
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium,
                                   ),
                                 ),
                               ],
@@ -156,8 +156,8 @@ class _OrderSummaryWidgetState extends State<OrderSummaryWidget> {
                                 Expanded(
                                   child: Text(
                                     '${FFAppState().customerVehicle.brand} ${FFAppState().customerVehicle.type}Tahun ${FFAppState().customerVehicle.year}Warna ${FFAppState().customerVehicle.color}',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyLarge,
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium,
                                   ),
                                 ),
                               ],
@@ -214,7 +214,7 @@ class _OrderSummaryWidgetState extends State<OrderSummaryWidget> {
                                               servicesItem.name,
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyLarge,
+                                                      .titleMedium,
                                             ),
                                           ),
                                         ),
@@ -227,7 +227,7 @@ class _OrderSummaryWidgetState extends State<OrderSummaryWidget> {
                                             currency: 'Rp',
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyLarge,
+                                              .titleMedium,
                                         ),
                                       ],
                                     ),
@@ -452,7 +452,7 @@ class _OrderSummaryWidgetState extends State<OrderSummaryWidget> {
                           Divider(
                             height: 24.0,
                             thickness: 1.0,
-                            color: FlutterFlowTheme.of(context).alternate,
+                            color: Color(0x7FBEBEBD),
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
