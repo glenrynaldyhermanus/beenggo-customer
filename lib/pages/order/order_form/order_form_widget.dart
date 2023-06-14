@@ -492,7 +492,7 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
                                                       .fromSTEB(
                                                           8.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    'Informasi 1, Tolong tambahin',
+                                                    columnInformationsRow.info,
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .titleMedium,
