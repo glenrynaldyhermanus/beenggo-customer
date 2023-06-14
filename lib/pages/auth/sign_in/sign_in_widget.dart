@@ -98,10 +98,10 @@ class _SignInWidgetState extends State<SignInWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   24.0, 64.0, 24.0, 24.0),
                               child: Text(
-                                'Our mechanics is one tap away',
+                                'Mudahnya mencari mekanik untuk masalah Kamu',
                                 textAlign: TextAlign.center,
                                 style:
-                                    FlutterFlowTheme.of(context).displaySmall,
+                                    FlutterFlowTheme.of(context).headlineMedium,
                               ),
                             ),
                           ),
@@ -126,7 +126,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                 ),
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  labelText: 'Phone',
+                                  labelText: 'Handphone',
                                   hintText: '+62 812-3456-789',
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -210,7 +210,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                     },
                                   );
                                 },
-                                text: 'Let\'s Go!',
+                                text: 'Masuk',
                                 options: FFButtonOptions(
                                   width: double.infinity,
                                   height: 56.0,
@@ -242,7 +242,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                   onPressed: () async {
                                     context.goNamed('Home');
                                   },
-                                  text: 'Skip For Now',
+                                  text: 'Nanti Saja',
                                   options: FFButtonOptions(
                                     width: double.infinity,
                                     height: 56.0,

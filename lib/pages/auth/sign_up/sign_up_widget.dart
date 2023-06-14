@@ -57,7 +57,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             automaticallyImplyLeading: false,
             title: Text(
-              'Tell Us About You',
+              'Isi Data DIri Kamu',
               style: FlutterFlowTheme.of(context).headlineSmall,
             ),
             actions: [],
@@ -161,7 +161,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                               ),
                             ),
                             Text(
-                              'Profile picture',
+                              'Foto profil',
                               style: FlutterFlowTheme.of(context).bodySmall,
                             ),
                           ],
@@ -178,8 +178,8 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                             ),
                             obscureText: false,
                             decoration: InputDecoration(
-                              labelText: 'Full Name',
-                              hintText: 'Your full name',
+                              labelText: 'Nama lengkap',
+                              hintText: 'Nama lengkap sesuai KTP',
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: FlutterFlowTheme.of(context).primary,
@@ -258,9 +258,14 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                             12.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           _model.datePicked == null
-                                              ? 'Select birthdate'
+                                              ? 'Pilih tanggal lahir'
                                               : dateTimeFormat(
-                                                  'yMMMd', _model.datePicked),
+                                                  'yMMMd',
+                                                  _model.datePicked,
+                                                  locale: FFLocalizations.of(
+                                                          context)
+                                                      .languageCode,
+                                                ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyLarge,
                                         ),
@@ -310,13 +315,13 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                           child: FlutterFlowDropDown<String>(
                             controller: _model.dropDownValueController ??=
                                 FormFieldController<String>(null),
-                            options: ['Male', 'Female'],
+                            options: ['Perempuan', 'Laki-laki'],
                             onChanged: (val) =>
                                 setState(() => _model.dropDownValue = val),
                             width: double.infinity,
                             height: 50.0,
                             textStyle: FlutterFlowTheme.of(context).bodyLarge,
-                            hintText: 'Select gender',
+                            hintText: 'Pilih jenis kelamin',
                             icon: Icon(
                               Icons.keyboard_arrow_down_rounded,
                               color: FlutterFlowTheme.of(context).primary,

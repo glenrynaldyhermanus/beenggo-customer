@@ -31,6 +31,7 @@ class _OrderVehicleFormWidgetState extends State<OrderVehicleFormWidget> {
     _model.textController2 ??= TextEditingController();
     _model.textController3 ??= TextEditingController();
     _model.textController4 ??= TextEditingController();
+    _model.textController5 ??= TextEditingController();
   }
 
   @override
@@ -67,7 +68,7 @@ class _OrderVehicleFormWidgetState extends State<OrderVehicleFormWidget> {
             },
           ),
           title: Text(
-            'Vehicle',
+            'Kendaraan',
             style: FlutterFlowTheme.of(context).headlineSmall,
           ),
           actions: [],
@@ -90,8 +91,8 @@ class _OrderVehicleFormWidgetState extends State<OrderVehicleFormWidget> {
                   ),
                   obscureText: false,
                   decoration: InputDecoration(
-                    labelText: 'Name',
-                    hintText: 'What do you call your vehicle?',
+                    labelText: 'Nama Kendaraan',
+                    hintText: 'Nama sebutan untuk kendaraanmu',
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: FlutterFlowTheme.of(context).primary,
@@ -151,7 +152,7 @@ class _OrderVehicleFormWidgetState extends State<OrderVehicleFormWidget> {
                   obscureText: false,
                   decoration: InputDecoration(
                     labelText: 'Brand',
-                    hintText: 'Vehicle brand like Toyota, Honda, etc.',
+                    hintText: 'Brand kendaraanmu seperti Toyota, Honda, dll.',
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: FlutterFlowTheme.of(context).primary,
@@ -210,8 +211,8 @@ class _OrderVehicleFormWidgetState extends State<OrderVehicleFormWidget> {
                   ),
                   obscureText: false,
                   decoration: InputDecoration(
-                    labelText: 'Year',
-                    hintText: 'Manufacturing year',
+                    labelText: 'Tipe',
+                    hintText: 'Tipe kendaraan seperti Vios, Avanza, dll.',
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: FlutterFlowTheme.of(context).primary,
@@ -270,8 +271,8 @@ class _OrderVehicleFormWidgetState extends State<OrderVehicleFormWidget> {
                   ),
                   obscureText: false,
                   decoration: InputDecoration(
-                    labelText: 'Color',
-                    hintText: 'Vehicle color',
+                    labelText: 'Tahun',
+                    hintText: 'Tahun pabrikan',
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: FlutterFlowTheme.of(context).primary,
@@ -319,6 +320,66 @@ class _OrderVehicleFormWidgetState extends State<OrderVehicleFormWidget> {
                       _model.textController4Validator.asValidator(context),
                 ),
               ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 0.0),
+                child: TextFormField(
+                  controller: _model.textController5,
+                  onChanged: (_) => EasyDebounce.debounce(
+                    '_model.textController5',
+                    Duration(milliseconds: 2000),
+                    () => setState(() {}),
+                  ),
+                  obscureText: false,
+                  decoration: InputDecoration(
+                    labelText: 'Warna Kendaraan',
+                    hintText: 'Hitam, Putih, Jingga Metalik',
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).primary,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).primary,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).error,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).error,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    suffixIcon: _model.textController5!.text.isNotEmpty
+                        ? InkWell(
+                            onTap: () async {
+                              _model.textController5?.clear();
+                              setState(() {});
+                            },
+                            child: Icon(
+                              Icons.clear,
+                              size: 20.0,
+                            ),
+                          )
+                        : null,
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyLarge,
+                  maxLines: null,
+                  validator:
+                      _model.textController5Validator.asValidator(context),
+                ),
+              ),
               Spacer(),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
@@ -328,18 +389,18 @@ class _OrderVehicleFormWidgetState extends State<OrderVehicleFormWidget> {
                                 _model.textController1.text != '') &&
                             (_model.textController2.text != null &&
                                 _model.textController2.text != '') &&
-                            (_model.textController3.text != null &&
-                                _model.textController3.text != '') &&
                             (_model.textController4.text != null &&
-                                _model.textController4.text != '')
+                                _model.textController4.text != '') &&
+                            (_model.textController5.text != null &&
+                                _model.textController5.text != '')
                         ? true
                         : true) {
                       FFAppState().update(() {
                         FFAppState().customerVehicle = CustomerVehicleStruct(
                           name: _model.textController1.text,
                           brand: _model.textController2.text,
-                          year: _model.textController3.text,
-                          color: _model.textController4.text,
+                          year: _model.textController4.text,
+                          color: _model.textController5.text,
                         );
                       });
                       context.safePop();
@@ -362,7 +423,7 @@ class _OrderVehicleFormWidgetState extends State<OrderVehicleFormWidget> {
                       );
                     }
                   },
-                  text: 'Save Vehicle',
+                  text: 'Simpan Kendaraan',
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 50.0,

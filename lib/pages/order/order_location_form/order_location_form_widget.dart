@@ -66,7 +66,7 @@ class _OrderLocationFormWidgetState extends State<OrderLocationFormWidget> {
             },
           ),
           title: Text(
-            'Location',
+            'Lokasi Pengerjaan',
             style: FlutterFlowTheme.of(context).headlineSmall,
           ),
           actions: [],
@@ -93,8 +93,9 @@ class _OrderLocationFormWidgetState extends State<OrderLocationFormWidget> {
                         ),
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Address',
-                          hintText: 'Type your detail address here',
+                          labelText: 'Alamat',
+                          hintText:
+                              'Nama Jalan, RT / RW, Kelurahan, Kecamatan, Kota / Kabupaten, Provinsi, Kode Pos',
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: FlutterFlowTheme.of(context).primary,
@@ -230,7 +231,7 @@ class _OrderLocationFormWidgetState extends State<OrderLocationFormWidget> {
                       );
                     }
                   },
-                  text: 'Save Location',
+                  text: 'Simpan Lokasi',
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 50.0,

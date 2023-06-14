@@ -49,11 +49,11 @@ String greetingWord() {
   var minute = now.minute;
   String greeting;
   if (hour < 12) {
-    greeting = 'Good morning,';
+    greeting = 'Selamat pagi,';
   } else if (hour < 18) {
-    greeting = 'Good afternoon,';
+    greeting = 'Selamat siang,';
   } else {
-    greeting = 'Good evening,';
+    greeting = 'Selamat malam,';
   }
   return greeting;
 }
