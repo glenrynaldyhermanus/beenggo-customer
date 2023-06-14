@@ -201,8 +201,8 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
                                             child: Text(
                                               FFAppState().customerVehicle ==
                                                       null
-                                                  ? 'Select Vehicle'
-                                                  : '${FFAppState().customerVehicle.brand} ${FFAppState().customerVehicle.year}',
+                                                  ? 'Pilih Kendaraan'
+                                                  : '${FFAppState().customerVehicle.brand} ${FFAppState().customerVehicle.type}\\nTahun ${FFAppState().customerVehicle.year}\\nWarna ${FFAppState().customerVehicle.color}',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .headlineSmall,
