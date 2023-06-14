@@ -1,4 +1,3 @@
-import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -12,11 +11,14 @@ class OrderFormModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for Checkbox widget.
+  // State field(s) for CheckboxListTile widget.
 
-  Map<ServicesRow, bool> checkboxValueMap = {};
-  List<ServicesRow> get checkboxCheckedItems =>
-      checkboxValueMap.entries.where((e) => e.value).map((e) => e.key).toList();
+  Map<ServicesRow, bool> checkboxListTileValueMap = {};
+  List<ServicesRow> get checkboxListTileCheckedItems =>
+      checkboxListTileValueMap.entries
+          .where((e) => e.value)
+          .map((e) => e.key)
+          .toList();
 
   /// Initialization and disposal methods.
 

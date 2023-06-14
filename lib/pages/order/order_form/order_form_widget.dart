@@ -1,4 +1,3 @@
-import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -289,109 +288,62 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
                                           final columnServicesRow =
                                               columnServicesRowList[
                                                   columnIndex];
-                                          return Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Theme(
-                                                data: ThemeData(
-                                                  checkboxTheme:
-                                                      CheckboxThemeData(
-                                                    visualDensity:
-                                                        VisualDensity.compact,
-                                                    materialTapTargetSize:
-                                                        MaterialTapTargetSize
-                                                            .shrinkWrap,
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              4.0),
-                                                    ),
-                                                  ),
-                                                  unselectedWidgetColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .tertiary,
-                                                ),
-                                                child: Checkbox(
-                                                  value: _model
-                                                              .checkboxValueMap[
-                                                          columnServicesRow] ??=
-                                                      false,
-                                                  onChanged: (newValue) async {
-                                                    setState(() => _model
-                                                                .checkboxValueMap[
+                                          return Theme(
+                                            data: ThemeData(
+                                              checkboxTheme: CheckboxThemeData(
+                                                visualDensity:
+                                                    VisualDensity.compact,
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                              ),
+                                              unselectedWidgetColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                            ),
+                                            child: CheckboxListTile(
+                                              value: _model
+                                                      .checkboxListTileValueMap[
+                                                  columnServicesRow] ??= false,
+                                              onChanged: (newValue) async {
+                                                setState(() =>
+                                                    _model.checkboxListTileValueMap[
                                                             columnServicesRow] =
                                                         newValue!);
-                                                    if (newValue!) {
-                                                      setState(() {
-                                                        FFAppState()
-                                                            .addToSelectedServices(
-                                                                ServiceStruct(
-                                                          id: columnServicesRow
-                                                              .id,
-                                                          name:
-                                                              columnServicesRow
-                                                                  .name,
-                                                          fee: columnServicesRow
-                                                              .fee,
-                                                        ));
-                                                      });
-                                                    } else {
-                                                      setState(() {
-                                                        FFAppState()
-                                                            .removeAtIndexFromSelectedServices(
-                                                                columnIndex);
-                                                      });
-                                                    }
-                                                  },
-                                                  activeColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primaryBackground,
-                                                  checkColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary,
-                                                ),
+                                              },
+                                              title: Text(
+                                                columnServicesRow.name,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleMedium,
                                               ),
-                                              Expanded(
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          8.0, 16.0, 8.0, 16.0),
-                                                  child: Text(
-                                                    columnServicesRow.name,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium,
-                                                  ),
+                                              subtitle: Text(
+                                                formatNumber(
+                                                  columnServicesRow.fee,
+                                                  formatType:
+                                                      FormatType.decimal,
+                                                  decimalType:
+                                                      DecimalType.commaDecimal,
+                                                  currency: 'Rp',
                                                 ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleMedium,
                                               ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        8.0, 16.0, 8.0, 16.0),
-                                                child: Text(
-                                                  formatNumber(
-                                                    columnServicesRow.fee,
-                                                    formatType:
-                                                        FormatType.decimal,
-                                                    decimalType: DecimalType
-                                                        .commaDecimal,
-                                                    currency: 'Rp',
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelLarge
-                                                      .override(
-                                                        fontFamily: 'Raleway',
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                                ),
-                                              ),
-                                            ],
+                                              tileColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              activeColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                              checkColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              dense: false,
+                                              controlAffinity:
+                                                  ListTileControlAffinity
+                                                      .leading,
+                                            ),
                                           );
                                         }),
                                       );
