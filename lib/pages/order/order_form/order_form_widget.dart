@@ -1,11 +1,9 @@
 import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -52,7 +50,7 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
@@ -82,7 +80,7 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -94,19 +92,11 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
                   child: Container(
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 16.0,
-                          color: Color(0x19000000),
-                          offset: Offset(0.0, 2.0),
-                          spreadRadius: 2.0,
-                        )
-                      ],
-                      borderRadius: BorderRadius.circular(8.0),
+                      borderRadius: BorderRadius.circular(0.0),
                     ),
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          24.0, 16.0, 24.0, 16.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -114,7 +104,7 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
                           Expanded(
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 16.0, 0.0),
+                                  2.0, 0.0, 16.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -152,7 +142,7 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -164,19 +154,11 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
                   child: Container(
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 16.0,
-                          color: Color(0x19000000),
-                          offset: Offset(0.0, 2.0),
-                          spreadRadius: 2.0,
-                        )
-                      ],
-                      borderRadius: BorderRadius.circular(8.0),
+                      borderRadius: BorderRadius.circular(0.0),
                     ),
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          24.0, 16.0, 24.0, 16.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -221,89 +203,7 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 0.0),
-                child: InkWell(
-                  splashColor: Colors.transparent,
-                  focusColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onTap: () async {
-                    FFAppState().selectedServices = [];
-
-                    context.pushNamed(
-                      'OrderServiceForm',
-                      queryParameters: {
-                        'vehicleCategoryId': serializeParam(
-                          widget.vehicleCategoryId,
-                          ParamType.int,
-                        ),
-                      }.withoutNulls,
-                    );
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 16.0,
-                          color: Color(0x19000000),
-                          offset: Offset(0.0, 2.0),
-                          spreadRadius: 2.0,
-                        )
-                      ],
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 16.0, 0.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Service',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 4.0, 0.0, 0.0),
-                                    child: Text(
-                                      FFAppState().selectedServices.length < 1
-                                          ? 'Select Services'
-                                          : FFAppState()
-                                              .selectedServices
-                                              .first
-                                              .name,
-                                      style: FlutterFlowTheme.of(context)
-                                          .headlineSmall,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Icon(
-                            Icons.cleaning_services_outlined,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 24.0,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
@@ -311,7 +211,7 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
                   ),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 8.0, 24.0, 8.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 8.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -320,63 +220,138 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
                           'Service',
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
-                        Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            FutureBuilder<List<ServicesRow>>(
-                              future: ServicesTable().queryRows(
-                                queryFn: (q) => q.eq(
-                                  'vehicle_category_id',
-                                  widget.vehicleCategoryId,
-                                ),
-                              ),
-                              builder: (context, snapshot) {
-                                // Customize what your widget looks like when it's loading.
-                                if (!snapshot.hasData) {
-                                  return Center(
-                                    child: SizedBox(
-                                      width: 50.0,
-                                      height: 50.0,
-                                      child: CircularProgressIndicator(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                      ),
-                                    ),
-                                  );
-                                }
-                                List<ServicesRow> radioButtonServicesRowList =
-                                    snapshot.data!;
-                                return FlutterFlowRadioButton(
-                                  options: radioButtonServicesRowList
-                                      .map((e) => e.name)
-                                      .toList()
-                                      .toList(),
-                                  onChanged: (val) => setState(() {}),
-                                  controller:
-                                      _model.radioButtonValueController ??=
-                                          FormFieldController<String>(null),
-                                  optionHeight: 44.0,
-                                  optionWidth: double.infinity,
-                                  textStyle:
-                                      FlutterFlowTheme.of(context).labelMedium,
-                                  selectedTextStyle:
-                                      FlutterFlowTheme.of(context).bodyMedium,
-                                  textPadding: EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 0.0, 0.0, 0.0),
-                                  buttonPosition: RadioButtonPosition.left,
-                                  direction: Axis.vertical,
-                                  radioButtonColor:
-                                      FlutterFlowTheme.of(context).primary,
-                                  inactiveRadioButtonColor:
-                                      FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                  toggleable: false,
-                                  horizontalAlignment: WrapAlignment.start,
-                                  verticalAlignment: WrapCrossAlignment.start,
-                                );
-                              },
+                        Text(
+                          'You can select one or more services',
+                          style: FlutterFlowTheme.of(context).bodySmall,
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 8.0, 0.0, 0.0),
+                          child: FutureBuilder<List<ServicesRow>>(
+                            future: ServicesTable().queryRows(
+                              queryFn: (q) => q
+                                  .eq(
+                                    'vehicle_category_id',
+                                    widget.vehicleCategoryId,
+                                  )
+                                  .eq(
+                                    'is_active',
+                                    true,
+                                  ),
                             ),
-                          ],
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    child: CircularProgressIndicator(
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                    ),
+                                  ),
+                                );
+                              }
+                              List<ServicesRow> columnServicesRowList =
+                                  snapshot.data!;
+                              return Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children:
+                                    List.generate(columnServicesRowList.length,
+                                        (columnIndex) {
+                                  final columnServicesRow =
+                                      columnServicesRowList[columnIndex];
+                                  return Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Theme(
+                                        data: ThemeData(
+                                          checkboxTheme: CheckboxThemeData(
+                                            visualDensity:
+                                                VisualDensity.compact,
+                                            materialTapTargetSize:
+                                                MaterialTapTargetSize
+                                                    .shrinkWrap,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(4.0),
+                                            ),
+                                          ),
+                                          unselectedWidgetColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .tertiary,
+                                        ),
+                                        child: Checkbox(
+                                          value: _model.checkboxValueMap[
+                                              columnServicesRow] ??= false,
+                                          onChanged: (newValue) async {
+                                            setState(() => _model
+                                                    .checkboxValueMap[
+                                                columnServicesRow] = newValue!);
+                                            if (newValue!) {
+                                              setState(() {
+                                                FFAppState()
+                                                    .addToSelectedServices(
+                                                        ServiceStruct(
+                                                  id: columnServicesRow.id,
+                                                  name: columnServicesRow.name,
+                                                  fee: columnServicesRow.fee,
+                                                ));
+                                              });
+                                            } else {
+                                              setState(() {
+                                                FFAppState()
+                                                    .removeAtIndexFromSelectedServices(
+                                                        columnIndex);
+                                              });
+                                            }
+                                          },
+                                          activeColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryBackground,
+                                          checkColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 16.0, 8.0, 16.0),
+                                          child: Text(
+                                            columnServicesRow.name,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 16.0, 8.0, 16.0),
+                                        child: Text(
+                                          formatNumber(
+                                            columnServicesRow.fee,
+                                            formatType: FormatType.decimal,
+                                            decimalType:
+                                                DecimalType.commaDecimal,
+                                            currency: 'Rp',
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .labelLarge
+                                              .override(
+                                                fontFamily: 'Raleway',
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                }),
+                              );
+                            },
+                          ),
                         ),
                       ],
                     ),
@@ -385,29 +360,48 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
               ),
               Spacer(),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24.0, 48.0, 24.0, 48.0),
-                child: FFButtonWidget(
-                  onPressed: () async {
-                    context.pushNamed('OrderSummary');
-                  },
-                  text: 'Order',
-                  options: FFButtonOptions(
-                    width: double.infinity,
-                    height: 48.0,
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).primary,
-                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Raleway',
-                          color: Colors.white,
-                        ),
-                    elevation: 3.0,
-                    borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 1.0,
-                    ),
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
+                child: Material(
+                  color: Colors.transparent,
+                  elevation: 3.0,
+                  shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 1.0,
+                    height: 48.0,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).primary,
+                      borderRadius: BorderRadius.circular(8.0),
+                      border: Border.all(
+                        width: 1.0,
+                      ),
+                    ),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Expanded(
+                            child: Text(
+                              'Order - ${FFAppState().selectedServices.length.toString()} services',
+                              style: FlutterFlowTheme.of(context).titleSmall,
+                            ),
+                          ),
+                          Text(
+                            formatNumber(
+                              functions.countServiceFee(
+                                  FFAppState().selectedServices.toList()),
+                              formatType: FormatType.decimal,
+                              decimalType: DecimalType.commaDecimal,
+                              currency: 'Rp',
+                            ),
+                            style: FlutterFlowTheme.of(context).titleSmall,
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
               ),
