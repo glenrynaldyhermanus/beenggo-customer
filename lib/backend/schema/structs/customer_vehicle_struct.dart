@@ -11,10 +11,12 @@ class CustomerVehicleStruct extends BaseStruct {
     String? brand,
     String? year,
     String? color,
+    String? type,
   })  : _name = name,
         _brand = brand,
         _year = year,
-        _color = color;
+        _color = color,
+        _type = type;
 
   // "name" field.
   String? _name;
@@ -40,12 +42,19 @@ class CustomerVehicleStruct extends BaseStruct {
   set color(String? val) => _color = val;
   bool hasColor() => _color != null;
 
+  // "type" field.
+  String? _type;
+  String get type => _type ?? '';
+  set type(String? val) => _type = val;
+  bool hasType() => _type != null;
+
   static CustomerVehicleStruct fromMap(Map<String, dynamic> data) =>
       CustomerVehicleStruct(
         name: data['name'] as String?,
         brand: data['brand'] as String?,
         year: data['year'] as String?,
         color: data['color'] as String?,
+        type: data['type'] as String?,
       );
 
   static CustomerVehicleStruct? maybeFromMap(dynamic data) =>
@@ -56,6 +65,7 @@ class CustomerVehicleStruct extends BaseStruct {
         'brand': _brand,
         'year': _year,
         'color': _color,
+        'type': _type,
       }.withoutNulls;
 
   @override
@@ -74,6 +84,10 @@ class CustomerVehicleStruct extends BaseStruct {
         ),
         'color': serializeParam(
           _color,
+          ParamType.String,
+        ),
+        'type': serializeParam(
+          _type,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -100,6 +114,11 @@ class CustomerVehicleStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
+        type: deserializeParam(
+          data['type'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -111,11 +130,13 @@ class CustomerVehicleStruct extends BaseStruct {
         name == other.name &&
         brand == other.brand &&
         year == other.year &&
-        color == other.color;
+        color == other.color &&
+        type == other.type;
   }
 
   @override
-  int get hashCode => const ListEquality().hash([name, brand, year, color]);
+  int get hashCode =>
+      const ListEquality().hash([name, brand, year, color, type]);
 }
 
 CustomerVehicleStruct createCustomerVehicleStruct({
@@ -123,10 +144,12 @@ CustomerVehicleStruct createCustomerVehicleStruct({
   String? brand,
   String? year,
   String? color,
+  String? type,
 }) =>
     CustomerVehicleStruct(
       name: name,
       brand: brand,
       year: year,
       color: color,
+      type: type,
     );
