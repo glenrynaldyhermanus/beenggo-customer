@@ -128,7 +128,8 @@ class _OrderLocationFormWidgetState extends State<OrderLocationFormWidget> {
                     ),
                     child: Stack(
                       children: [
-                        if (_model.placePickerValue != null)
+                        if (_model.placePickerValue.name != null &&
+                            _model.placePickerValue.name != '')
                           FlutterFlowGoogleMap(
                             controller: _model.googleMapsController,
                             onCameraIdle: (latLng) =>
@@ -165,7 +166,8 @@ class _OrderLocationFormWidgetState extends State<OrderLocationFormWidget> {
                   ),
                 ),
               ),
-              if (_model.placePickerValue != null)
+              if (_model.placePickerValue.name != null &&
+                  _model.placePickerValue.name != '')
                 Padding(
                   padding:
                       EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 24.0),
