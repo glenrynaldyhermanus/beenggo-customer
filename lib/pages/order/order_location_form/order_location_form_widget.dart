@@ -49,7 +49,7 @@ class _OrderLocationFormWidgetState extends State<OrderLocationFormWidget> {
         resizeToAvoidBottomInset: false,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
@@ -78,49 +78,47 @@ class _OrderLocationFormWidgetState extends State<OrderLocationFormWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Expanded(
-                      child: FlutterFlowPlacePicker(
-                        iOSGoogleMapsApiKey:
-                            'AIzaSyC-aX3XdoD6jvTWOR-1E1z5yBYB6pC8QTM',
-                        androidGoogleMapsApiKey:
-                            'AIzaSyB1X4sAxZ1WabqgcVmsgaR_zHzX9gdo9uQ',
-                        webGoogleMapsApiKey:
-                            'AIzaSyBlwTGUVK0YIDlGaWZ7S8zNbNLSWfyj47Y',
-                        onSelect: (place) async {
-                          setState(() => _model.placePickerValue = place);
-                        },
-                        defaultText: 'Alamat lengkap lokasi pengerjaan',
-                        icon: Icon(
-                          Icons.search_outlined,
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          size: 15.0,
-                        ),
-                        buttonOptions: FFButtonOptions(
-                          width: 200.0,
-                          height: 50.0,
-                          color: FlutterFlowTheme.of(context).primaryBackground,
-                          textStyle: FlutterFlowTheme.of(context).bodyLarge,
-                          elevation: 2.0,
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).primary,
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                      ),
+              Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                ),
+                child: Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 16.0),
+                  child: FlutterFlowPlacePicker(
+                    iOSGoogleMapsApiKey:
+                        'AIzaSyC-aX3XdoD6jvTWOR-1E1z5yBYB6pC8QTM',
+                    androidGoogleMapsApiKey:
+                        'AIzaSyB1X4sAxZ1WabqgcVmsgaR_zHzX9gdo9uQ',
+                    webGoogleMapsApiKey:
+                        'AIzaSyBlwTGUVK0YIDlGaWZ7S8zNbNLSWfyj47Y',
+                    onSelect: (place) async {
+                      setState(() => _model.placePickerValue = place);
+                    },
+                    defaultText: 'Cari alamat',
+                    icon: Icon(
+                      Icons.search_outlined,
+                      color: FlutterFlowTheme.of(context).primaryText,
+                      size: 24.0,
                     ),
-                  ],
+                    buttonOptions: FFButtonOptions(
+                      height: 50.0,
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      textStyle: FlutterFlowTheme.of(context).bodyLarge,
+                      elevation: 0.0,
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).primary,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
                 ),
               ),
               Expanded(
                 child: Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 24.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
                   child: Container(
                     width: double.infinity,
                     height: double.infinity,
