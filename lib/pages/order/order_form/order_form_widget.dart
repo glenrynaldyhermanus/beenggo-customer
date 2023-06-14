@@ -337,7 +337,7 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .titleMedium,
                                               ),
-                                              subtitle: Text(
+                                              secondary: Text(
                                                 formatNumber(
                                                   columnServicesRow.fee,
                                                   formatType:
