@@ -28,6 +28,7 @@ dependencies:
   app_links: 3.4.1
   auto_size_text: 3.0.0
   cached_network_image: 3.2.1
+  collection: 1.17.0
   csv: 5.0.1
   dropdown_button2: 2.0.0
   easy_debounce: 2.0.1
@@ -43,6 +44,10 @@ dependencies:
   firebase_storage_web: 3.3.17
   flutter_animate: 4.1.1+1
   flutter_cache_manager: 3.3.0
+  flutter_google_places: 
+    git:
+      url: https://github.com/fluttercommunity/flutter_google_places
+      ref: v0.3.2
   flutter_plugin_android_lifecycle: 2.0.9
   flutter_secure_storage: 8.0.0
   font_awesome_flutter: 10.1.0
@@ -68,6 +73,8 @@ dependencies:
   json_path: 0.4.1
   mask_text_input_formatter: 2.4.0
   mime_type: 1.0.0
+  package_info_plus: 3.1.0
+  package_info_plus_platform_interface: 2.0.1
   page_transition: 2.0.4
   path_provider: 2.0.14
   path_provider_android: 2.0.25
