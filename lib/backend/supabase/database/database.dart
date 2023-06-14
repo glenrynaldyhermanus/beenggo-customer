@@ -6,9 +6,10 @@ export 'row.dart';
 export 'table.dart';
 
 export 'tables/additional_fees.dart';
-export 'tables/customer_vehicle.dart';
+export 'tables/informations.dart';
 export 'tables/services.dart';
 export 'tables/vehicle_categories.dart';
+export 'tables/customer_vehicles.dart';
 export 'tables/orders.dart';
 export 'tables/mechanics.dart';
 export 'tables/order_services.dart';

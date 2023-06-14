@@ -216,12 +216,14 @@ dynamic deserializeParam<T>(
         switch (T) {
           case AdditionalFeesRow:
             return AdditionalFeesRow(data);
-          case CustomerVehicleRow:
-            return CustomerVehicleRow(data);
+          case InformationsRow:
+            return InformationsRow(data);
           case ServicesRow:
             return ServicesRow(data);
           case VehicleCategoriesRow:
             return VehicleCategoriesRow(data);
+          case CustomerVehiclesRow:
+            return CustomerVehiclesRow(data);
           case OrdersRow:
             return OrdersRow(data);
           case MechanicsRow:
