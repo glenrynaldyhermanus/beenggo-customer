@@ -40,4 +40,14 @@ class OrdersRow extends SupabaseDataRow {
 
   int? get mechanicId => getField<int>('mechanic_id');
   set mechanicId(int? value) => setField<int>('mechanic_id', value);
+
+  String get orderAddress => getField<String>('order_address')!;
+  set orderAddress(String value) => setField<String>('order_address', value);
+
+  double get orderLatitude => getField<double>('order_latitude')!;
+  set orderLatitude(double value) => setField<double>('order_latitude', value);
+
+  double get orderLongitude => getField<double>('order_longitude')!;
+  set orderLongitude(double value) =>
+      setField<double>('order_longitude', value);
 }
