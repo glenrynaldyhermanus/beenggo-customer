@@ -141,7 +141,7 @@ class _OrderLocationFormWidgetState extends State<OrderLocationFormWidget> {
                             markerColor: GoogleMarkerColor.violet,
                             mapType: MapType.normal,
                             style: GoogleMapStyle.dark,
-                            initialZoom: 10.0,
+                            initialZoom: 20.0,
                             allowInteraction: true,
                             allowZoom: true,
                             showZoomControls: true,
