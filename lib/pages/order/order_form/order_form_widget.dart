@@ -326,8 +326,15 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
                                                 } else {
                                                   setState(() {
                                                     FFAppState()
-                                                        .removeAtIndexFromSelectedServices(
-                                                            columnIndex);
+                                                        .removeFromSelectedServices(
+                                                            FFAppState()
+                                                                .selectedServices
+                                                                .where((e) =>
+                                                                    e.id ==
+                                                                    columnServicesRow
+                                                                        .id)
+                                                                .toList()
+                                                                .first);
                                                   });
                                                 }
                                               },
