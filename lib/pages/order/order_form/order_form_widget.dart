@@ -1,3 +1,4 @@
+import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -310,6 +311,25 @@ class _OrderFormWidgetState extends State<OrderFormWidget> {
                                                     _model.checkboxListTileValueMap[
                                                             columnServicesRow] =
                                                         newValue!);
+                                                if (newValue!) {
+                                                  setState(() {
+                                                    FFAppState()
+                                                        .addToSelectedServices(
+                                                            ServiceStruct(
+                                                      id: columnServicesRow.id,
+                                                      name: columnServicesRow
+                                                          .name,
+                                                      fee:
+                                                          columnServicesRow.fee,
+                                                    ));
+                                                  });
+                                                } else {
+                                                  setState(() {
+                                                    FFAppState()
+                                                        .removeAtIndexFromSelectedServices(
+                                                            columnIndex);
+                                                  });
+                                                }
                                               },
                                               title: Text(
                                                 columnServicesRow.name,
