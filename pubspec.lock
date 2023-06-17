@@ -766,6 +766,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
+  moengage_flutter:
+    dependency: "direct main"
+    description:
+      name: moengage_flutter
+      sha256: "9d28ec63956ad431b77da3a64c4593ecd4bb3b22956797597828e0441dfcfe89"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.4.0"
   nested:
     dependency: transitive
     description:

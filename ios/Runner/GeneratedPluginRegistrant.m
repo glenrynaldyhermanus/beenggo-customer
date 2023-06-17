@@ -60,6 +60,12 @@
 @import image_picker_ios;
 #endif
 
+#if __has_include(<moengage_flutter/MoEngageFlutterPlugin.h>)
+#import <moengage_flutter/MoEngageFlutterPlugin.h>
+#else
+@import moengage_flutter;
+#endif
+
 #if __has_include(<package_info_plus/FLTPackageInfoPlusPlugin.h>)
 #import <package_info_plus/FLTPackageInfoPlusPlugin.h>
 #else
@@ -120,6 +126,7 @@
   [FLTGoogleMapsPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTGoogleMapsPlugin"]];
   [FLTGoogleSignInPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTGoogleSignInPlugin"]];
   [FLTImagePickerPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTImagePickerPlugin"]];
+  [MoEngageFlutterPlugin registerWithRegistrar:[registry registrarForPlugin:@"MoEngageFlutterPlugin"]];
   [FLTPackageInfoPlusPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTPackageInfoPlusPlugin"]];
   [PathProviderPlugin registerWithRegistrar:[registry registrarForPlugin:@"PathProviderPlugin"]];
   [FLTSharedPreferencesPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTSharedPreferencesPlugin"]];
